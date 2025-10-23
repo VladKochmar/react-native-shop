@@ -4,7 +4,7 @@ import { login } from '@/store/userSlice';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet, Text, TextInput, TouchableOpacity, useColorScheme } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface LoginError {
   email: string | null;
@@ -41,34 +41,32 @@ export default function LoginScreen() {
   };
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.screen}>
-        <Text style={[styles.title, { color: theme.text }]}>Log In</Text>
-        <TextInput
-          onChangeText={newEmail => setEmail(newEmail)}
-          value={email}
-          placeholder="Enter your email"
-          keyboardType="email-address"
-          textContentType="emailAddress"
-          autoComplete="email"
-          style={[styles.input, { color: theme.text }]}
-        />
-        {error.email && <Text style={styles.errorText}>{error.email}</Text>}
-        <TextInput
-          onChangeText={newPassword => setPassword(newPassword)}
-          value={password}
-          placeholder="Enter your password"
-          secureTextEntry
-          autoComplete="password"
-          textContentType="password"
-          style={[styles.input, { color: theme.text }]}
-        />
-        {error.password && <Text style={styles.errorText}>{error.password}</Text>}
-        <TouchableOpacity onPress={handleLogin} style={styles.button}>
-          <Text style={styles.buttonText}>Log In</Text>
-        </TouchableOpacity>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <SafeAreaView style={styles.screen}>
+      <Text style={[styles.title, { color: theme.text }]}>Log In</Text>
+      <TextInput
+        onChangeText={newEmail => setEmail(newEmail)}
+        value={email}
+        placeholder="Enter your email"
+        keyboardType="email-address"
+        textContentType="emailAddress"
+        autoComplete="email"
+        style={[styles.input, { color: theme.text }]}
+      />
+      {error.email && <Text style={styles.errorText}>{error.email}</Text>}
+      <TextInput
+        onChangeText={newPassword => setPassword(newPassword)}
+        value={password}
+        placeholder="Enter your password"
+        secureTextEntry
+        autoComplete="password"
+        textContentType="password"
+        style={[styles.input, { color: theme.text }]}
+      />
+      {error.password && <Text style={styles.errorText}>{error.password}</Text>}
+      <TouchableOpacity onPress={handleLogin} style={styles.button}>
+        <Text style={styles.buttonText}>Log In</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
   );
 }
 

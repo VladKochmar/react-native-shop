@@ -4,7 +4,7 @@ import { Product } from '@/types/Product';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { ActivityIndicator, Alert, StyleSheet, Text, TextInput, TouchableOpacity, useColorScheme } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 interface CreatorError {
   title: string | null;
@@ -63,31 +63,29 @@ export default function CreatorScreen() {
   };
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.screen}>
-        <Text style={[styles.title, { color: theme.text }]}>Add New Product</Text>
-        <TextInput
-          onChangeText={newTitle => setTitle(newTitle)}
-          value={title}
-          placeholder="Type product title"
-          style={[styles.input, { color: theme.text }]}
-        />
-        {error.title && <Text style={styles.errorText}>{error.title}</Text>}
-        <TextInput
-          onChangeText={newPrice => setPrice(newPrice)}
-          value={price}
-          placeholder="Type price in UAH"
-          keyboardType="numeric"
-          style={[styles.input, { color: theme.text }]}
-        />
-        {error.price && <Text style={styles.errorText}>{error.price}</Text>}
-        <CameraInput />
-        <TouchableOpacity onPress={handleSave} style={styles.button}>
-          {isPending ? <ActivityIndicator color="white" /> : <Text style={styles.buttonText}>Save Product</Text>}
-        </TouchableOpacity>
-        {isError && <Text style={styles.errorText}>Something went wrong!</Text>}
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <SafeAreaView style={styles.screen}>
+      <Text style={[styles.title, { color: theme.text }]}>Add New Product</Text>
+      <TextInput
+        onChangeText={newTitle => setTitle(newTitle)}
+        value={title}
+        placeholder="Type product title"
+        style={[styles.input, { color: theme.text }]}
+      />
+      {error.title && <Text style={styles.errorText}>{error.title}</Text>}
+      <TextInput
+        onChangeText={newPrice => setPrice(newPrice)}
+        value={price}
+        placeholder="Type price in UAH"
+        keyboardType="numeric"
+        style={[styles.input, { color: theme.text }]}
+      />
+      {error.price && <Text style={styles.errorText}>{error.price}</Text>}
+      <CameraInput />
+      <TouchableOpacity onPress={handleSave} style={styles.button}>
+        {isPending ? <ActivityIndicator color="white" /> : <Text style={styles.buttonText}>Save Product</Text>}
+      </TouchableOpacity>
+      {isError && <Text style={styles.errorText}>Something went wrong!</Text>}
+    </SafeAreaView>
   );
 }
 

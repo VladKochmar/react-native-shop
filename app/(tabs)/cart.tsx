@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '@/hooks/use-redux';
 import { clearCart } from '@/store/cartSlice';
 import { FlatList, StyleSheet, Text, TouchableOpacity, useColorScheme, View } from 'react-native';
 
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function TabTwoScreen() {
   const colorScheme = useColorScheme();
@@ -14,32 +14,30 @@ export default function TabTwoScreen() {
   const dispatch = useAppDispatch();
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.screen}>
-        <Text style={[styles.title, { color: theme.text }]}>Cart</Text>
-        {products.length ? (
-          <>
-            <FlatList
-              data={products}
-              renderItem={({ item }) => (
-                <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 8 }}>
-                  <View style={{ flex: 1 }}>
-                    <ProductCard product={item} isAdded={true} />
-                  </View>
-                  <Text style={{ color: theme.text, fontWeight: 600, fontSize: 20 }}>x {item.quantity}</Text>
+    <SafeAreaView style={styles.screen}>
+      <Text style={[styles.title, { color: theme.text }]}>Cart</Text>
+      {products.length ? (
+        <>
+          <FlatList
+            data={products}
+            renderItem={({ item }) => (
+              <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 8 }}>
+                <View style={{ flex: 1 }}>
+                  <ProductCard product={item} isAdded={true} />
                 </View>
-              )}
-              keyExtractor={product => product.id}
-            />
-            <TouchableOpacity onPress={() => dispatch(clearCart())}>
-              <Text style={styles.clear}>Clear all</Text>
-            </TouchableOpacity>
-          </>
-        ) : (
-          <Text style={[styles.empty, { color: theme.text }]}>There are no products</Text>
-        )}
-      </SafeAreaView>
-    </SafeAreaProvider>
+                <Text style={{ color: theme.text, fontWeight: 600, fontSize: 20 }}>x {item.quantity}</Text>
+              </View>
+            )}
+            keyExtractor={product => product.id}
+          />
+          <TouchableOpacity onPress={() => dispatch(clearCart())}>
+            <Text style={styles.clear}>Clear all</Text>
+          </TouchableOpacity>
+        </>
+      ) : (
+        <Text style={[styles.empty, { color: theme.text }]}>There are no products</Text>
+      )}
+    </SafeAreaView>
   );
 }
 

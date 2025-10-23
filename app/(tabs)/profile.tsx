@@ -4,7 +4,7 @@ import { logout } from '@/store/userSlice';
 import { useRouter } from 'expo-router';
 import { useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, useColorScheme } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function ProfileScreen() {
   const colorScheme = useColorScheme();
@@ -23,14 +23,12 @@ export default function ProfileScreen() {
   if (!user) return null;
 
   return (
-    <SafeAreaProvider>
-      <SafeAreaView style={styles.screen}>
-        <Text style={[styles.title, { color: theme.text }]}>Hello, {user.email}</Text>
-        <TouchableOpacity onPress={() => dispatch(logout())}>
-          <Text style={styles.logout}>Log out</Text>
-        </TouchableOpacity>
-      </SafeAreaView>
-    </SafeAreaProvider>
+    <SafeAreaView style={styles.screen}>
+      <Text style={[styles.title, { color: theme.text }]}>Hello, {user.email}</Text>
+      <TouchableOpacity onPress={() => dispatch(logout())}>
+        <Text style={styles.logout}>Log out</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
   );
 }
 
