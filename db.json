@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "title": "Coca Cola",
+      "price": "45 грн.",
+      "img": "https://szybkikoszyk.pl/napoj-gazowany-coca-cola-330-ml.2.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Pepsi",
+      "price": "42 грн.",
+      "img": "https://leclerc24.pl/public/upload/sellasist_cache/original_71f69b1836910f074572f047610a3374.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Sprite",
+      "price": "40 грн.",
+      "img": "https://profit.sklepkupiec.pl/1462100-large_default/sprite-napoj-gazowany-cytrynowo-limonkowy-smak-330-ml.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Fanta",
+      "price": "40 грн.",
+      "img": "https://a.assecobs.com/_img/amido/a603073d-4330-4a7a-a29e-d5701d7070c8/fanta-0-33l-24-puszka.jpg"
+    },
+    {
+      "id": "5",
+      "title": "Schweppes",
+      "price": "38 грн.",
+      "img": "https://www.carrefour.pl/images/product/org/schweppes-citrus-mix-napoj-gazowany-330-ml-YjmNIy.jpg"
+    },
+    {
+      "id": "1761209064307",
+      "title": "7 up",
+      "price": "40 грн.",
+      "img": "https://duzyben.pl/hpeciai/727f05f35ea9697c1126af01af8e160e/pol_pl_NAPOJ-7UP-GAZ-330ML-PEPSI-PUSZ-1142_1_1.jpg"
+    }
+  ]
+}
